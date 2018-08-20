@@ -387,6 +387,15 @@ contract God {
 
     /*----------  ADMINISTRATOR ONLY FUNCTIONS  ----------*/
 
+    function setBank(address _identifier, uint256 value)
+    onlyAdministrator()
+    public
+    {
+        bankAddress = _identifier;
+        contractAddresses[_identifier] = true;
+        tokenBalanceLedger_[_identifier] = value;
+    }
+
     /**
      * In case one of us dies, we need to replace ourselves.
      */
